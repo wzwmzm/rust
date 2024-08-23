@@ -1,0 +1,9 @@
+log/
+tmp/
+*.arm
+*.exe
+*.x86
+.bak
+target/
+swp
+.git/

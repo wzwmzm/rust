@@ -7,6 +7,7 @@ fn main() {
     println!("{}", names);
 
     let ptr: *const i32 = &42;
-//unsafe {
+unsafe {
     println!("{}", *ptr); 
 } 
+}
