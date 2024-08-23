@@ -8,6 +8,6 @@ fn main() {
 
     let ptr: *const i32 = &42;
 unsafe {
-    println!("{}", *ptr); 
+    println!("test = {}",  *ptr); //adf
 } 
 }
