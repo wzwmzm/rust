@@ -1,13 +1,16 @@
-//use std::sync::Mutex;
+use actix_web::{get, web, App, HttpServer, Responder};
 
+#[get("/hello/{name}")]
+async fn greet(name: web::Path<String>) -> impl Responder {
+    format!("Hello {name}!")
+}
 
-fn main() {
-    let names  = String::from("Sunface, Jack, Allen");
-    //    let v = NAMES.lock().unwrap();
-    println!("{}", names);
-
-    let ptr: *const i32 = &42;
-unsafe {
-    println!("test = {}",  *ptr); //adf
-} 
+#[actix_web::main] // or #[tokio::main]
+async fn main() -> std::io::Result<()> {
+    HttpServer::new(|| {
+        App::new().service(greet)
+    })
+    .bind(("127.0.0.1", 8080))?
+    .run()
+    .await
 }

@@ -6,3 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+tui = "0.19.0" # 这里使用了tui的0.20版本，你可以根据需要更改版本号
+crossterm = "0.19.0" # 同样，这里使用了crossterm的0.20版本
