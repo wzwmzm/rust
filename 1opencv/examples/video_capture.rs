@@ -15,7 +15,7 @@ fn main() -> Result<()> {
 			highgui::imshow(window, &frame)?;
 		}
 		let key = highgui::wait_key(10)?;
-		if key > 0 && key != 255 {
+		if key != -1 { 		//按任意键退出  //ESC键退出 : if key == 27 {
 			break;
 		}
 	}
