@@ -1,5 +1,17 @@
-//! # 创建遮罩
+//! # 本程序演示如何创建遮罩和如何处理鼠标事件
 //! Reference: [opencv/samples/cpp/create_mask.cpp](https://github.com/opencv/opencv/blob/4.9.0/samples/cpp/create_mask.cpp)
+//! 
+
+
+/* 
+程序主要逻辑:
+
+1, 注册窗口回调函数highgui::set_mouse_callback(SOURCE_WINDOW, Some(Box::new(mouse_event_dispatcher)))后, 如果在SOURCE_WINDOW窗口内发生鼠标事件, 操作系统会将此事件分发给mouse_event_dispatcher函数处理. 调用这个函数会需要四个参数,即(event: i32, x: i32, y: i32, flags: i32), 这是由操作系统根据实际情况提供.
+2, mouse_event_dispatcher函数几乎原封不动地传给&mouse_event_data, 并将should_handle_mouse_event标志置true, 等待程序来处理.
+3, 主程序就是一个大循环loop{}. 里面首先就是查询上面的should_handle_mouse_event标志是否为true, 如果不是就进入下一循环, 如果为 true 就去获取*mouse_event_data的值, 并赋给 (mouse_event, x, y, _).
+4, 接下来就是根据当前状态和鼠标事件更新绘图状态
+drawing_state = state_transform(drawing_state, mouse_event);,然后进入状态机的状态流转.
+  */
 
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
@@ -37,7 +49,9 @@ fn main() -> Result<()> {
 	let argv = args.iter().map(|s| s.as_str()).collect::<Vec<&str>>();
 	// 创建命令行解析器
 	let mut parser = CommandLineParser::new(&argv, "{@input | lena.jpg | input image}")?;
+	//设置程序的 about 信息
 	parser.about("This program demonstrates using mouse events\n")?;
+	//打印程序的 about 信息
 	parser.print_message()?;
 	println!(
 		"\n\tleft mouse button - set a point to create mask shape\n\
@@ -46,7 +60,7 @@ fn main() -> Result<()> {
 	);
 
 	//获取输入图像路径
-	let input_image = argv.into_iter().nth(2).unwrap_or("./examples/data/lena.jpg");	
+	let input_image = argv.into_iter().nth(2).unwrap_or("./examples/data/1.jpg"); //lena.jpg");	
 	//校验文件是否存在
 	let input_image_path = find_file(input_image, true, false)
 		.map(|path| {
@@ -64,7 +78,8 @@ fn main() -> Result<()> {
 		process::exit(-1);
 	}
 	// 创建源图像窗口
-	highgui::named_window(SOURCE_WINDOW, highgui::WINDOW_AUTOSIZE)?;
+	// 必须加上 highgui::WINDOW_GUI_NORMAL 去除右键菜单,否则鼠标右键会引起混乱
+	highgui::named_window(SOURCE_WINDOW, highgui::WINDOW_AUTOSIZE|highgui::WINDOW_GUI_NORMAL)?;
 	// 初始化鼠标事件数据
 	let mouse_event_data = (highgui::MouseEventTypes::EVENT_MOUSEWHEEL, 0, 0, 0);
 	// 创建用于同步的原子布尔和互斥锁
@@ -76,7 +91,7 @@ fn main() -> Result<()> {
 		let mouse_data = Arc::clone(&mouse_event_data);
 		let should_handle_mouse_event = Arc::clone(&should_handle_mouse_event);
 
-		move |event: i32, x: i32, y: i32, flags: i32| {
+		move |event: i32, x: i32, y: i32, flags: i32| {		//注意:这里的四个参数其实是mouse_event_dispatcher需要调用的参数
 			// can intercept specific mouse events here to don't update the mouse_data
 			//尝试将 event 转换成 highgui::MouseEventTypes 枚举
 			if let Ok(mouse_event) = highgui::MouseEventTypes::try_from(event) {
@@ -105,7 +120,7 @@ fn main() -> Result<()> {
 		}
 		// 获取并处理鼠标事件
 		//
-		let (mouse_event, x, y, _) = {
+		let (mouse_event, x, y, _) = {	//这一段只是根据取到的mouse_event_data值赋给 (mouse_event, x, y, _)
 			if !should_handle_mouse_event.load(Ordering::Relaxed) {
 				continue;	// 如果没有鼠标事件需要处理，则继续下一次循环
 			} else {
