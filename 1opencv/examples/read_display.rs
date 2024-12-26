@@ -1,4 +1,4 @@
-use opencv::{core, highgui, imgcodecs, prelude::*, Result};
+use opencv::{highgui, imgcodecs, prelude::*};
 use std::fs;
 use std::error::Error;
 use std::env;
@@ -27,7 +27,7 @@ fn main() -> std::result::Result<(), Box<dyn Error>>  {
 
         for image in images {
             println!("准备读取图片: {}", image.path().to_string_lossy());        
-            let mut img = imgcodecs::imread_def(image.path().to_string_lossy().as_ref())?;
+            let img = imgcodecs::imread_def(image.path().to_string_lossy().as_ref())?;
             highgui::imshow("Display window", &img)?;
             highgui::wait_key(0)?;
         
