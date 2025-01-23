@@ -1,4 +1,6 @@
 //! Port of https://github.com/opencv/opencv/blob/4.7.0/samples/cpp/tutorial_code/ImgTrans/HoughLines_Demo.cpp
+//! 
+//! cargo run --example hough_lines -- examples/data/stuff.jpg 
 
 use std::env::args;
 use std::f64::consts::PI;
