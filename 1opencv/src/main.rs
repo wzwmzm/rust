@@ -1,4 +1,4 @@
-use opencv::{core, highgui, imgcodecs, prelude::*, Result};
+use opencv::{highgui, imgcodecs, prelude::*, Result};
 
 fn main() -> Result<()> {
     // 初始化OpenCV
