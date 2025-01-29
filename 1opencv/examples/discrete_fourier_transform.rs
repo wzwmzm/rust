@@ -1,6 +1,7 @@
 //! Port of https://github.com/opencv/opencv/blob/master/samples/cpp/tutorial_code/core/discrete_fourier_transform/discrete_fourier_transform.cpp
 
-// cargo run --example discrete_fourier_transform ./examples/data/test.jpg
+//! 傅利叶变换 (编译通过,执行出错)
+//!  cargo run --example discrete_fourier_transform ./examples/data/test.jpg
 
 use std::env;
 

@@ -1,3 +1,8 @@
+//! 本程序分别使用 opencl 和 CPU 两种方式实现来对比性能表现. 
+//! UMat：用于OpenCL实现，利用GPU加速。适用于大规模并行计算
+//! Mat： 用于CPU实现，依赖CPU进行计算。适用于小量计算
+//! 它们在使用上只有 UMat 与 Mat 的区别
+//! 本程序CPU速度优于OPENCL
 //! cargo run --example opencl -- examples/data/stuff.jpg 
 //! 
 

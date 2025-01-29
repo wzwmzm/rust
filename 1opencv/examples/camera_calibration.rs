@@ -1,4 +1,8 @@
 //! Port of code from the tutorial at: https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html
+//! 
+//! 图像校准
+//! cargo run --example camera_calibration 
+//! 读取目录下多个文件
 
 use std::error::Error;
 use std::fs;

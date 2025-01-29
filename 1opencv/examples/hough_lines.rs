@@ -1,5 +1,5 @@
 //! Port of https://github.com/opencv/opencv/blob/4.7.0/samples/cpp/tutorial_code/ImgTrans/HoughLines_Demo.cpp
-//! 
+//! 霍夫计算
 //! cargo run --example hough_lines -- examples/data/stuff.jpg 
 
 use std::env::args;

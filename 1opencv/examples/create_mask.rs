@@ -1,8 +1,6 @@
 //! # 本程序演示如何创建遮罩和如何处理鼠标事件
 //! Reference: [opencv/samples/cpp/create_mask.cpp](https://github.com/opencv/opencv/blob/4.9.0/samples/cpp/create_mask.cpp)
 //! 
-
-
 /* 
 程序主要逻辑:
 
@@ -13,6 +11,14 @@
 drawing_state = state_transform(drawing_state, mouse_event);,然后进入状态机的状态流转.
   */
 
+  //! 给图像建立遮罩
+  //! cargo run --example create_mask ./examples/data/lena.jpg
+  //! 命令行参数,使用方法示例
+  //! 窗口消息,鼠标事件处理
+  //! 
+  //! 
+  //! 
+  //! 
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
 use std::{env, process};

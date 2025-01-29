@@ -1,4 +1,6 @@
 //! Port of https://github.com/opencv/opencv/blob/4.7.0/samples/cpp/tutorial_code/ImgTrans/HoughCircle_Demo.cpp
+//! 
+//! 霍夫计算
 //! cargo run --example hough_circle -- examples/data/stuff.jpg 
 //! 按键 'q' 退出
 //! 

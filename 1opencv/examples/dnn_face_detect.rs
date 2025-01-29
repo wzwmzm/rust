@@ -1,6 +1,7 @@
 //! Port of https://github.com/opencv/opencv/blob/4.9.0/samples/dnn/face_detect.cpp
 //! Tutorial: https://docs.opencv.org/4.9.0/d0/dd4/tutorial_dnn_face.html
-//! 
+
+//! 面像检测与识别
 //! cargo run --example dnn_face_detect -- --help
 //! 
 //! # detect on camera input
@@ -14,6 +15,9 @@
 //! 
 //! 1, 需要将两个模型文件拷贝到data文件夹
 //! 2, cargo run --example dnn_face_detect -- --fd=./examples/data/face_detection_yunet_2023mar.onnx --fr=./examples/data/face_recognition_sface_2021dec.onnx
+//! 
+//! 1, 复杂的命令行输入提取
+//! 2, 图像叠加文字和几何图形
 
 use std::env; // 导入环境模块，用于获取命令行参数
 

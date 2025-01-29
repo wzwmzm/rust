@@ -1,6 +1,9 @@
 //! Port of https://github.com/opencv/opencv/blob/4.7.0/modules/gapi/samples/api_example.cpp
-//gapi是依靠硬件实现的OPENCV 管线(任务流水线)加速, 本机没有安装, 
-//#[cfg(ocvrs_has_module_gapi)]检测gapi模块是否安装, 并决定后面的代码是否执行地
+//! gapi是依靠硬件实现的OPENCV 管线(任务流水线)加速, 本机没有安装, 
+//! #[cfg(ocvrs_has_module_gapi)]检测gapi模块是否安装, 并决定后面的代码是否执行地
+//! cargo run --example gapi_api_example 
+
+
 use std::env;
 
 use opencv::prelude::*;

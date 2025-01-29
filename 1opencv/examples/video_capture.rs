@@ -1,3 +1,7 @@
+//! 摄像头的使用
+//! cargo run --example video_capture
+
+
 use opencv::{highgui, prelude::*, videoio, Result};
 
 fn main() -> Result<()> {
