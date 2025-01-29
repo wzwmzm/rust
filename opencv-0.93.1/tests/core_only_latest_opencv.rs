@@ -1,7 +1,7 @@
 //! Tests that will not be run in CI on OpenCV 4.2.0, 4.5.4 and 3.4.16 due to missing function
 #![cfg(ocvrs_opencv_branch_4)]
 
-use opencv::core::{Point2f, RotatedRect, Size2f, Vector};
+use opencv::core::{Point2f, RotatedRect, Size2f};
 use opencv::Result;
 
 #[test]

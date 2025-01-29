@@ -1,8 +1,8 @@
 
-use std::io::{stdout, Write};
+use std::io::stdout;
 use tui::backend::CrosstermBackend;
 use tui::layout::{Constraint, Direction, Layout};
-use tui::style::{Color, Modifier, Style};
+use tui::style::{Color, Style};
 use tui::widgets::{Block, Borders, Paragraph};
 use tui::Terminal;
 use crossterm::event::{self, Event, KeyCode};
