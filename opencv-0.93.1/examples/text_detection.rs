@@ -1,6 +1,9 @@
 //! Port of https://github.com/opencv/opencv/blob/master/samples/dnn/text_detection.cpp
 //! Check the source cpp file for where to get the NN files.
 //! This example requires at least OpenCV 4.5.1.
+//! 
+//! 文本检测
+//! cargo run --example text_detection //不完整
 
 use std::env;
 use std::error::Error;

@@ -1,0 +1,20 @@
+[package]
+name = "opencv1"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+opencv = "0.93.1"
+once_cell = "1.10"  # 根据需要选择合适的版本
+semver = "1.0"      # 根据需要选择合适的版本
+shlex = "1.0"       # 添加 shlex 依赖
+dunce = "1.0"       # 添加 dunce 依赖
+
+[build-dependencies]
+jobserver = "0.1"   # 根据需要选择合适的版本
+pkg-config = "0.3"  # 根据需要选择合适的版本
+vcpkg = "0.2"       # 根据需要选择合适的版本
+cc = "1.0"          # 根据需要选择合适的版本
+once_cell = "1.0"
+semver = "1.0"
+opencv_binding_generator = "0.1"  # 添加 opencv_binding_generator 依赖

@@ -58,5 +58,27 @@
 //! 本程序CPU速度优于OPENCL
 //! cargo run --example opencl -- examples/data/stuff.jpg 
 
+//! 文本检测
+//! cargo run --example text_detection //不完整
+
+//! 摄像头图像串流到 http://127.0.0.1:8080
+//! cargo run --example video_capture_http_stream 
+
 //! 摄像头的使用
 //! cargo run --example video_capture
+
+//! 面像识别, 人脸检测
+//! cargo run --example video_facedetect 
+
+//! 视频彩色转灰色
+//!  cargo run --example video_to_gray 
+
+//! 透视变换
+//! cargo run --example warp_perspective_demo -- examples/data/stuff.jpg 
+//! 1, 设置鼠标回调函数 highgui::set_mouse_callback(...)
+//! 2, 处理键盘输入
+//! 3, 文字与图形的显示
+
+
+//! 显示图片在窗口中
+//! cargo run --example window 
