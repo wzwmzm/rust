@@ -11,6 +11,9 @@ opencv = "0.95.1"
 [dev-dependencies.matches]
 version = "0.1"
 
+[features]
+rgb = []
+
 
 
 [features]
