@@ -13,11 +13,5 @@ version = "0.1"
 
 [features]
 rgb = []
-
-
-
-[features]
 cudaimgproc = []
 opencv_branch_4 = []
-
-
