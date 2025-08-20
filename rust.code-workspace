@@ -1,9 +1,15 @@
 {
 	"folders": [
 		{
+			"name": "mytest",
+			"path": "../mytest"
+		},
+		{
+			"name": "rust",
 			"path": "."
 		},
 		{
+			"name": "myproject",
 			"path": "../myproject"
 		}
 	],

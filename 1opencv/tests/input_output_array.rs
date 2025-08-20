@@ -1,9 +1,9 @@
 use matches::assert_matches;
 
 use opencv::boxed_ref::{BoxedRef, BoxedRefMut};
-//#[cfg(ocvrs_opencv_branch_4)]
+//#[cfg(feature = "opencv_branch_4")]
 use opencv::core::AccessFlag::ACCESS_READ;
-#[cfg(not(ocvrs_opencv_branch_4))]
+//#[cfg(not(feature = "opencv_branch_4"))]
 //use opencv::core::ACCESS_READ;
 use opencv::core::{
 	Matx12d, Scalar, ToInputArray, ToInputOutputArray, ToOutputArray, UMat, Vec2b, VecN, Vector, _InputArray_MAT,
@@ -134,7 +134,7 @@ fn input_output_array_types() -> Result<()> {
 	let slice: &[u8] = &[];
 	check_input(slice, _InputArray_MATX, |m| m.is_matx())?;
 
-	#[cfg(ocvrs_has_module_cudaimgproc)]
+	#[cfg(feature = "cudaimgproc")]
 	{
 		use opencv::core::{
 			GpuMat, HostMem, _InputArray_CUDA_GPU_MAT, _InputArray_CUDA_HOST_MEM, _InputArray_STD_VECTOR_CUDA_GPU_MAT,
